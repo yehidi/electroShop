@@ -1,8 +1,7 @@
 import React, { Component } from "react"
 import {Link} from 'react-router-dom'
 
-class Header extends React.Component{
-    render() {
+export default function Header() {
         return (
             <div>
               <div className="header-area">
@@ -49,12 +48,12 @@ class Header extends React.Component{
         <div className="row">
           <div className="col-sm-6">
             <div className="logo">
-              <h1><a href="index.html">e<span>Electronics</span></a></h1>
+              <h1><Link to="/">e<span>Electronics</span></Link></h1>
             </div>
           </div>
           <div className="col-sm-6">
             <div className="shopping-item">
-              <a href="cart.html">Cart - <span className="cart-amunt">$800</span> <i className="fa fa-shopping-cart" /> <span className="product-count">5</span></a>
+              <Link to="/cart">Cart - <span className="cart-amunt">$800</span> <i className="fa fa-shopping-cart" /> <span className="product-count">5</span></Link>
             </div>
           </div>
         </div>
@@ -76,8 +75,8 @@ class Header extends React.Component{
               <li><Link to="/" className="active" href="true">Home</Link></li>
               <li><Link to="/shop" className="active">Shop</Link></li>
               <li><Link to="/products/" className="active">Single Product</Link></li>
-              {/* <li><a href="cart.html">Cart</a></li>
-              <li><a href="#">Category</a></li> */}
+              <li><Link to="/cart" className="active">Cart</Link></li>
+              {/* <li><a href="#">Category</a></li> */}
               <li><Link to="/about" className="active">About</Link></li>
             </ul>
           </div>  
@@ -87,6 +86,3 @@ class Header extends React.Component{
             </div>
         )
     }
-}
-
-export default Header
