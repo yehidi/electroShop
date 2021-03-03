@@ -1,10 +1,9 @@
-import React, {Component, useState} from 'react'
-import {Link} from 'react-router-dom'
-import ProductComp from '../components/ProductComp'
+import React from 'react'
+import List from '../components/List'
 
-class Shop extends React.Component{
-    render(){
-       return ( 
+export default function Shop() {
+  
+ return ( 
       <div>
         <div className="product-big-title-area">
           <div className="container">
@@ -21,20 +20,8 @@ class Shop extends React.Component{
           <div className="zigzag-bottom"></div>
           <div className="container">
             <div className="row">
-              <ProductComp />
-              <ProductComp />
-              <ProductComp />
-              <ProductComp />
-              <ProductComp />
-              <ProductComp />
-              <ProductComp />
-              <ProductComp />
-              <ProductComp />
-              <ProductComp />
-              <ProductComp />
-              <ProductComp />
+              < List />
             </div>
-
             <div className="row">
               <div className="col-md-12">
                 <div className="product-pagination text-center">
@@ -65,6 +52,3 @@ class Shop extends React.Component{
           </div>
     )
   }
-}
-
-export default Shop

@@ -6,10 +6,13 @@ import './App.css';
 import shopScreen from './screens/Shop';
 import homeScreen from './screens/Home';
 import aboutScreen from './screens/About'
+import singleProductScreen from './screens/SingleProduct';
+
 //Components
 import Header from './components/Header';
 import FooterTop from './components/FooterTop';
 import FooterBottom from './components/FooterBottom';
+
 
 function App() {
   return (
@@ -19,7 +22,9 @@ function App() {
         <Switch>
           <Route exact path='/' component={homeScreen} />
           <Route path='/shop' component={shopScreen} />
+          <Route path='/products/:id' component={singleProductScreen} />
           <Route path='/about' component={aboutScreen} />
+
         </Switch>
       <FooterTop />
       <FooterBottom />
