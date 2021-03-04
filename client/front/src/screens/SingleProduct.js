@@ -1,21 +1,42 @@
-import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 
 export default function SingleProduct({id}) {
+  const [qty, setQty] = useState(1);
+  const [productDetails, setProductsDetails] = useState([null]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
-  const [productDetails, setProductsDetails] = React.useState([null]);
+  // useEffect(() => {        
+    
 
-  React.useEffect(() => {        
+  //   fetch('http://localhost:5000/api/products/'+id)
+  //   .then((response) => response.json())
+  //   .then((data) => setProductsDetails(data)); }, );
+
+  
+  useEffect(() => {
     const index = window.location.toString().lastIndexOf('/')+1;
     const id = window.location.toString().substring(index);
+      const fetchData = async () => {
+        try {
+          setLoading(true);
+          const {data} = await axios.get('/api/products/'+id);
+          setLoading(false);
+          setProductsDetails(data);
+        } catch (err) {
+          setError(err.message);
+          setLoading(false);
+        }
+      };
+      fetchData();
+    }, []);
 
-    fetch('http://localhost:5000/api/products/'+id)
-    .then((response) => response.json())
-    .then((data) => setProductsDetails(data)); }, );
+    
+        // if (productDetails==null){
+        //     return "";}
 
 
-        if (productDetails==null){
-            return productDetails;}
        return ( 
         <div>
                   <div className="single-product-area">
@@ -76,8 +97,8 @@ export default function SingleProduct({id}) {
               <div className="product-content-right">
                 <div className="product-breadcroumb">
                   <a href>Home</a>
-                  <a href>Category Name</a>
-                  <a href>Sony Smart TV - 2015</a>
+                  <a href>{productDetails.category}</a>
+                  <a href>{productDetails.name}</a>
                 </div>
                 <div className="row">
                   <div className="col-sm-6">
@@ -100,9 +121,25 @@ export default function SingleProduct({id}) {
                         <ins>${productDetails.price}</ins> <del>$800.00</del>
                       </div>    
                       <form action className="cart">
-                        <div className="quantity">
-                          <input type="number" size={4} className="input-text qty text" title="Qty" defaultValue={1} name="quantity" min={1} step={1} />
-                        </div>
+                     
+                        
+                          <div>Qty</div>
+                          <div>
+                            <select
+                              value={qty}
+                              onChange={(e) => setQty(e.target.value)}
+                            >
+                              {[...Array(productDetails.countInStock).keys()].map(
+                                (x) => (
+                                  <option key={x + 1} value={x + 1}>
+                                    {x + 1}
+                                  </option>
+                                )
+                              )}
+                            </select>
+                          </div>
+                        
+                      
                         <button className="add_to_cart_button" type="submit">Add to cart</button>
                       </form>   
                       <div className="product-inner-category">

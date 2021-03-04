@@ -1,33 +1,47 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ProductComp from '../components/ProductComp'
+import axios from 'axios';
+import MessageBox from '../components/MessageBox'
+import LoadingBox from '../components/LoadingBox'
+
 
 export default function List() {
-    const [products, setProducts] = React.useState([]);
 
-  React.useEffect(() => {        
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
 
-    fetch('http://localhost:5000/api/products')
-    .then((response) => response.json())
-    .then((data) => setProducts(data)); }, );
-
-        if (products.length < 1){
-            return "";
-        }
-
-    // let url = 'http://localhost:8081/movies';
-    // if (q !== null && q !== "")
-    //     url += '/title/' + q;
-
-//     fetch('http://localhost:5000/api/products')
-//     .then((response) => response.json())
-//     .then((data) => setProducts(data));
-// }, [q]);
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            setLoading(true);
+            const {data} = await axios.get('/api/products');
+            setLoading(false);
+            setProducts(data);
+          } catch (err) {
+            setError(err.message);
+            setLoading(false);
+          }
+        };
+        fetchData();
+      }, []);
 
     return (
-        <div>
-            { products.map((data,key) => {
-                  return <ProductComp name={data.name} price={data.price} key={key} id={data._id} />
-                 }) }
+        <div className="row center">
+            {
+            loading? (<LoadingBox></LoadingBox>
+            ) : error? ( 
+            <MessageBox variant="danger">{error}</MessageBox>
+            ) : ( 
+            <div>
+                {
+                    products.map((data,key) => {
+                   return <ProductComp name={data.name} price={data.price} key={key} id={data._id} />
+                    })
+                }
+            </div>
+             )
+            }
         </div>
-    )
+    );
 }

@@ -12,6 +12,7 @@ import singleProductScreen from './screens/SingleProduct';
 import Header from './components/Header';
 import FooterTop from './components/FooterTop';
 import FooterBottom from './components/FooterBottom';
+import cartScreen from './screens/Cart';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path='/shop' component={shopScreen} />
           <Route path='/products/:id' component={singleProductScreen} />
           <Route path='/about' component={aboutScreen} />
+          <Route path='/cart' component={cartScreen} />
 
         </Switch>
       <FooterTop />
