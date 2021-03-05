@@ -18,6 +18,9 @@ usersRouter.get("/", getUsers);
 //@access Public
 usersRouter.get("/:id", getUserById);
 
-usersRouter.get("/signin", getSignIn);
+//Get signin page
+//@route Get /api/users/signin
+//@access Public
+usersRouter.post("/signin", getSignIn);
 
 module.exports = usersRouter;
