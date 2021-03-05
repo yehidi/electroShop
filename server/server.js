@@ -14,7 +14,6 @@ app.get('/', (req,res) =>{
 app.get('/products', (req,res) =>{
     res.send(dataProducts);
 });
-
 connectDB();
 app.use(express.json());
 app.use(cors());

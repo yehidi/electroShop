@@ -24,7 +24,6 @@ function App() {
           <Route path='/shop' component={shopScreen} />
           <Route path='/products/:id' component={singleProductScreen} />
           <Route path='/about' component={aboutScreen} />
-
         </Switch>
       <FooterTop />
       <FooterBottom />
