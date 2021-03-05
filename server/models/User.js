@@ -15,16 +15,14 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    role: {
-        type: Number,
-        default: 0
+    isAdmin: {
+        type: Boolean,
+        default: false,
+        required: true,
     },
-    cart: {
-        type: Array,
-        default: []
-    }
-}, {
-    timestamps: true
-})
+},
+    {timestamps: true}
+);
 
-module.exports = mongoose.model('Users', userSchema)
+const User = mongoose.model('users', userSchema)
+module.exports = User;

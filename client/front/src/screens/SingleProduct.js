@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import Reviews from '../components/Reviews';
 
 export default function SingleProduct({id}) {
   const [qty, setQty] = useState(1);
@@ -143,12 +144,12 @@ export default function SingleProduct({id}) {
                         <button className="add_to_cart_button" type="submit">Add to cart</button>
                       </form>   
                       <div className="product-inner-category">
-                        <p>Category: <a href>Summer</a>. Tags: <a href>awesome</a>, <a href>best</a>, <a href>sale</a>, <a href>shoes</a>. </p>
+                        <p>Category: <a href>{productDetails.category}</a>.</p>
                       </div> 
                       <div role="tabpanel">
                         <ul className="product-tab" role="tablist">
                           <li role="presentation" className="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
-                          <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Reviews</a></li>
+                          <Reviews />
                         </ul>
                         <div className="tab-content">
                           <div role="tabpanel" className="tab-pane fade in active" id="home">
