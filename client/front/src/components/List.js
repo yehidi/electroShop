@@ -36,7 +36,7 @@ export default function List() {
             <div>
                 {
                     products.map((data,key) => {
-                   return <ProductComp name={data.name} price={data.price} key={key} id={data._id} />
+                   return <ProductComp name={data.name} price={data.price} imageUrl={data.imageUrl} key={key} id={data._id} />
                     })
                 }
             </div>

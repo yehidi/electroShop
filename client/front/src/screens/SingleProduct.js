@@ -105,7 +105,7 @@ export default function SingleProduct({id}) {
                   <div className="col-sm-6">
                     <div className="product-images">
                       <div className="product-main-img">
-                        <img src="img/product-2.jpg" alt="" />
+                        <img src={productDetails.imageUrl} alt="" />
                       </div>
                       <div className="product-gallery">
                         <img src="img/product-thumb-1.jpg" alt="" />
@@ -122,9 +122,8 @@ export default function SingleProduct({id}) {
                         <ins>${productDetails.price}</ins> <del>$800.00</del>
                       </div>    
                       <form action className="cart">
-                     
-                        
-                          <div>Qty</div>
+                          
+                          <span>Qty</span>
                           <div>
                             <select
                               value={qty}
@@ -144,7 +143,7 @@ export default function SingleProduct({id}) {
                         <button className="add_to_cart_button" type="submit">Add to cart</button>
                       </form>   
                       <div className="product-inner-category">
-                        <p>Category: <a href>{productDetails.category}</a>.</p>
+                      <p>Category: <a href>{productDetails.category}</a>.</p>
                       </div> 
                       <div role="tabpanel">
                         <ul className="product-tab" role="tablist">

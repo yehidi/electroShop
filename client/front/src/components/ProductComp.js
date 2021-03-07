@@ -2,13 +2,13 @@ import React, { Component } from "react"
 import {Link} from 'react-router-dom'
 require('dotenv').config();
 
-export default function ProductComp({name, price, id}){
+export default function ProductComp({name, price, id, imageUrl}){
     
         return (
                 <div className="col-md-3 col-sm-6">
                   <div className="single-shop-product">
                     <div className="product-upper">
-                    <Link to={'/products/'+ id}><img src="img/product-2.jpg" alt="" /></Link>
+                    <Link to={'/products/'+ id}><img src={imageUrl} alt={name} width={262.5} height={335.75} /></Link>
                     </div>
                     <h2><Link to={'/products/'+ id}>{name}</Link></h2>
                     <div className="product-carousel-price">
