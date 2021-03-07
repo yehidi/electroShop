@@ -1009,3 +1009,17 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
     border: 0.1rem solid transparent;
     border-radius: 0.5re;
 }
+
+/* Form */
+.form {
+    max-width: 60rem;
+    margin: 0 auto;
+  }
+  .form > div {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+  }
+  .form label {
+    margin: 1rem 0;
+  }

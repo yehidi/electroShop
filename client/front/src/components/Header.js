@@ -14,7 +14,7 @@ export default function Header() {
                 <li><a href="#"><i className="fa fa-heart" /> Wishlist</a></li>
                 <li><a href="cart.html"><i className="fa fa-user" /> My Cart</a></li>
                 <li><a href="checkout.html"><i className="fa fa-user" /> Checkout</a></li>
-                <li><a href="#"><i className="fa fa-user" /> Login</a></li>
+                <li><Link to="/signin"><i className="fa fa-user" /> Login</Link></li>
               </ul>
             </div>
           </div>

@@ -122,7 +122,6 @@ export default function SingleProduct({id}) {
                         <ins>${productDetails.price}</ins> <del>$800.00</del>
                       </div>    
                       <form action className="cart">
-                          
                           <span>Qty</span>
                           <div>
                             <select

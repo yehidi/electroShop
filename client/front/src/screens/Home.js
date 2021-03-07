@@ -1,11 +1,8 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
-import FooterBottom from '../components/FooterBottom'
-import FooterTop from '../components/FooterTop'
-import Header from '../components/Header'
+import LatestProd from '../components/LatestProd'
+export default function Home() {
 
-class Home extends React.Component{
-    render(){
        return (
            <div>
         <div className="slider-area">
@@ -37,7 +34,7 @@ class Home extends React.Component{
                               <h2>We are awesome</h2>
                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, dolorem, excepturi. Dolore aliquam quibusdam ut quae iure vero exercitationem ratione!</p>
                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi ab molestiae minus reiciendis! Pariatur ab rerum, sapiente ex nostrum laudantium.</p>
-                              <a href className="readmore">Learn more</a>
+                              <a className="readmore">Learn more</a>
                             </div>
                           </div>
                         </div>
@@ -57,7 +54,7 @@ class Home extends React.Component{
                             <div className="slide-content">
                               <h2>We are great</h2>
                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe aspernatur, dolorum harum molestias tempora deserunt voluptas possimus quos eveniet, vitae voluptatem accusantium atque deleniti inventore. Enim quam placeat expedita! Quibusdam!</p>
-                              <a href className="readmore">Learn more</a>
+                              <a className="readmore">Learn more</a>
                             </div>
                           </div>
                         </div>
@@ -78,7 +75,7 @@ class Home extends React.Component{
                               <h2>We are superb</h2>
                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, eius?</p>
                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptates necessitatibus dicta recusandae quae amet nobis sapiente explicabo voluptatibus rerum nihil quas saepe, tempore error odio quam obcaecati suscipit sequi.</p>
-                              <a href className="readmore">Learn more</a>
+                              <a className="readmore">Learn more</a>
                             </div>
                           </div>
                         </div>
@@ -128,85 +125,8 @@ class Home extends React.Component{
               <div className="col-md-12">
                 <div className="latest-product">
                   <h2 className="section-title">Latest Products</h2>
-                  <div className="product-carousel">
-                    <div className="single-product">
-                      <div className="product-f-image">
-                        <img src="img/product-1.jpg" alt="" />
-                        <div className="product-hover">
-                          <a href="#" className="add-to-cart-link"><i className="fa fa-shopping-cart" /> Add to cart</a>
-                          <a href="single-product.html" className="view-details-link"><i className="fa fa-link" /> See details</a>
-                        </div>
-                      </div>
-                      <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
-                      <div className="product-carousel-price">
-                        <ins>$700.00</ins> <del>$800.00</del>
-                      </div> 
-                    </div>
-                    <div className="single-product">
-                      <div className="product-f-image">
-                        <img src="img/product-2.jpg" alt="" />
-                        <div className="product-hover">
-                          <a href="#" className="add-to-cart-link"><i className="fa fa-shopping-cart" /> Add to cart</a>
-                          <a href="single-product.html" className="view-details-link"><i className="fa fa-link" /> See details</a>
-                        </div>
-                      </div>
-                      <h2><a href="single-product.html">Apple new mac book 2015 March :P</a></h2>
-                      <div className="product-carousel-price">
-                        <ins>$899.00</ins> <del>$999.00</del>
-                      </div> 
-                    </div>
-                    <div className="single-product">
-                      <div className="product-f-image">
-                        <img src="img/product-3.jpg" alt="" />
-                        <div className="product-hover">
-                          <a href="#" className="add-to-cart-link"><i className="fa fa-shopping-cart" /> Add to cart</a>
-                          <a href="single-product.html" className="view-details-link"><i className="fa fa-link" /> See details</a>
-                        </div>
-                      </div>
-                      <h2><a href="single-product.html">Apple new i phone 6</a></h2>
-                      <div className="product-carousel-price">
-                        <ins>$400.00</ins> <del>$425.00</del>
-                      </div>                                 
-                    </div>
-                    <div className="single-product">
-                      <div className="product-f-image">
-                        <img src="img/product-4.jpg" alt="" />
-                        <div className="product-hover">
-                          <a href="#" className="add-to-cart-link"><i className="fa fa-shopping-cart" /> Add to cart</a>
-                          <a href="single-product.html" className="view-details-link"><i className="fa fa-link" /> See details</a>
-                        </div>
-                      </div>
-                      <h2><a href="single-product.html">Sony playstation microsoft</a></h2>
-                      <div className="product-carousel-price">
-                        <ins>$200.00</ins> <del>$225.00</del>
-                      </div>                            
-                    </div>
-                    <div className="single-product">
-                      <div className="product-f-image">
-                        <img src="img/product-5.jpg" alt="" />
-                        <div className="product-hover">
-                          <a href="#" className="add-to-cart-link"><i className="fa fa-shopping-cart" /> Add to cart</a>
-                          <a href="single-product.html" className="view-details-link"><i className="fa fa-link" /> See details</a>
-                        </div>
-                      </div>
-                      <h2><a href="single-product.html">Sony Smart Air Condtion</a></h2>
-                      <div className="product-carousel-price">
-                        <ins>$1200.00</ins> <del>$1355.00</del>
-                      </div>                                 
-                    </div>
-                    <div className="single-product">
-                      <div className="product-f-image">
-                        <img src="img/product-6.jpg" alt="" />
-                        <div className="product-hover">
-                          <a href="#" className="add-to-cart-link"><i className="fa fa-shopping-cart" /> Add to cart</a>
-                          <a href="single-product.html" className="view-details-link"><i className="fa fa-link" /> See details</a>
-                        </div>
-                      </div>
-                      <h2><a href="single-product.html">Samsung gallaxy note 4</a></h2>
-                      <div className="product-carousel-price">
-                        <ins>$400.00</ins>
-                      </div>                            
-                    </div>
+                  <div className="product-carousel active">
+                    <LatestProd />
                   </div>
                 </div>
               </div>
@@ -242,7 +162,7 @@ class Home extends React.Component{
               <div className="col-md-4">
                 <div className="single-product-widget">
                   <h2 className="product-wid-title">Top Sellers</h2>
-                  <a href className="wid-view-more">View All</a>
+                  <a className="wid-view-more">View All</a>
                   <div className="single-wid-product">
                     <a href="single-product.html"><img src="img/product-thumb-1.jpg" alt="" className="product-thumb" /></a>
                     <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
@@ -389,6 +309,3 @@ class Home extends React.Component{
            </div> 
        )
     }
-}
-
-export default Home;
