@@ -1,8 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../actions/cartActions';
+import CartItem from '../components/CartItem';
 
-export default function Cart() {
-       return (
+export default function Cart(props) {
+
+const product_id=window.location.pathname.split('/')[2];
+const qty = props.location.search? Number(props.location.search.split('=')[1])
+: 1;
+
+
+const dispatch = useDispatch();
+useEffect(() => {
+  if (product_id) {
+    dispatch(addToCart(product_id, qty));
+  }
+}, [])
+return (
         <div>
+          <h1>ADD TO CART : ProductID: {product_id} Qty: {qty}</h1>
                   <div className="single-product-area">
         <div className="zigzag-bottom" />
         <div className="container">
@@ -73,30 +89,7 @@ export default function Cart() {
                         </tr>
                       </thead>
                       <tbody>
-                        <tr className="cart_item">
-                          <td className="product-remove">
-                            <a title="Remove this item" className="remove" href="#">×</a> 
-                          </td>
-                          <td className="product-thumbnail">
-                            <a href="single-product.html"><img width={145} height={145} alt="poster_1_up" className="shop_thumbnail" src="img/product-thumb-2.jpg" /></a>
-                          </td>
-                          <td className="product-name">
-                            <a href="single-product.html">Ship Your Idea</a> 
-                          </td>
-                          <td className="product-price">
-                            <span className="amount">£15.00</span> 
-                          </td>
-                          <td className="product-quantity">
-                            <div className="quantity buttons_added">
-                              <input type="button" className="minus" defaultValue="-" />
-                              <input type="number" size={4} className="input-text qty text" title="Qty" defaultValue={1} min={0} step={1} />
-                              <input type="button" className="plus" defaultValue="+" />
-                            </div>
-                          </td>
-                          <td className="product-subtotal">
-                            <span className="amount">£15.00</span> 
-                          </td>
-                        </tr>
+                        <CartItem />
                         <tr>
                           <td className="actions" colSpan={6}>
                             <div className="coupon">
