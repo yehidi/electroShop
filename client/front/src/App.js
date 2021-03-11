@@ -16,6 +16,10 @@ import FooterBottom from './components/FooterBottom';
 import cartScreen from './screens/Cart';
 import { useSelector } from 'react-redux';
 
+//users-angular
+import io from "socket.io-client";
+const socket= io.connect("http://localhost:5000");
+//users-angular
 function App() {
 
 

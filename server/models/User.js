@@ -26,3 +26,5 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('users', userSchema)
 module.exports = User;
+
+//צריך אולי להוסיף ref כדי לעשות קשר יחיד-רבים או כל קשר שנרצה - הרצאה 10 01:01:00

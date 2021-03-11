@@ -38,9 +38,27 @@ const getSignIn = async (req, res) => {
   }
   res.status(401).send({message: 'Invalid email/password'});
 };
-
+//angular-users
+// const create = (req, res) => {
+//   const user = new User({
+//       id:req.body._id, //maybe
+//       password: req.body.password,
+//       name: req.body.name,
+//       isAdmin:req.body.isAdmin//maybe
+//   });
+// //add to db
+//   user.save().then(() => {
+//       res.json({ status: 'success' });
+//   }).catch(() => {
+//       res.json({ status: 'failed' });
+//   });
+// }
+//angular-users
 module.exports = {
   getUsers,
   getUserById,
-  getSignIn
+  getSignIn,
+  //angular-users
+  //create
+  //angular-users
 };

@@ -5,6 +5,7 @@ const router = express.Router();
 const {
   getProducts,
   getProductById,
+  create,
 } = require("../controller/productControllers");
 
 //Get All The Products From db
@@ -16,5 +17,9 @@ router.get("/", getProducts);
 //@route Get /api/products/:id
 //@access Public
 router.get("/:id", getProductById);
+
+//angular
+router.post("/", create);
+//angular
 
 module.exports = router;
