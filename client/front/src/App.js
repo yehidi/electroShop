@@ -14,10 +14,11 @@ import Header from './components/Header';
 import FooterTop from './components/FooterTop';
 import FooterBottom from './components/FooterBottom';
 import cartScreen from './screens/Cart';
-
-
+import { useSelector } from 'react-redux';
 
 function App() {
+
+
   return (
   <div>
     <Router>
@@ -28,8 +29,7 @@ function App() {
           <Route path='/products/:id' component={singleProductScreen} />
           <Route path='/signin' component={signinScreen} />
           <Route path='/about' component={aboutScreen} />
-          <Route path='/cart' component={cartScreen} />
-
+          <Route path='/cart/:_id?' component={cartScreen} />
         </Switch>
       <FooterTop />
       <FooterBottom />
