@@ -1,30 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import ProductComp from '../components/ProductComp'
 import axios from 'axios';
 import MessageBox from '../components/MessageBox'
 import LoadingBox from '../components/LoadingBox'
-
+import { getProducts as listProducts } from '../actions/productActions';
 
 export default function List() {
+    const dispatch = useDispatch();
 
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
+    const getProducts = useSelector((state) => state.getProducts);
+    const { products, loading, error } = getProducts;
 
     useEffect(() => {
-        const fetchData = async () => {
-          try {
-            setLoading(true);
-            const {data} = await axios.get('/api/products');
-            setLoading(false);
-            setProducts(data);
-          } catch (err) {
-            setError(err.message);
-            setLoading(false);
-          }
-        };
-        fetchData();
-      }, []);
+      dispatch(listProducts());
+    }, [dispatch]);
 
     return (
         <div className="row center">
@@ -35,9 +25,9 @@ export default function List() {
             ) : ( 
             <div>
                 {
-                    products.map((data,key) => {
-                   return <ProductComp name={data.name} price={data.price} imageUrl={data.imageUrl} key={key} id={data._id} />
-                    })
+                    products.map((product) => (
+                    <ProductComp name={product.name} price={product.price} imageUrl={product.imageUrl} key={product._id} productId={product._id} />
+                    ))
                 }
             </div>
              )

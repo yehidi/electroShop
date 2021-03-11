@@ -109,7 +109,7 @@ z-index: 999;}
     font-weight: 700;
 }
 .product-count {
-    background: none repeat scroll 0 0 #1abc9c;
+    background: none repeat scroll 0 0 #ff0000;
     border-radius: 50%;
     color: #fff;
     display: inline-block;
@@ -1004,7 +1004,24 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
   color: #1abc9c;
 }
 
+ul {
+padding: 0;
+margin: 0;
+list-style-type: none;
+}
+
+li {
+margin-top: 1rem;
+}
+.success {
+    color: green;
+    padding: 1rem;
+    border: 0.1rem solid transparent;
+    border-radius: 0.5re;
+}
+
 .danger {
+    color:red;
     padding: 1rem;
     border: 0.1rem solid transparent;
     border-radius: 0.5re;
