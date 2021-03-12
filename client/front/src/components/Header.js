@@ -8,6 +8,15 @@ export default function Header() {
   const cart = useSelector(state => state.cart);
   const { cartItems } = cart;
   
+  const getCartCount = () => {
+    return cartItems.reduce((qty, item) => Number(item.qty) + qty, 0);
+  };
+
+  const getCartSubTotal = () => {
+    return cartItems
+      .reduce((price, item) => price + item.price * item.qty, 0)
+  };
+
         return (
             <div>
               <div className="header-area">
@@ -44,9 +53,9 @@ export default function Header() {
             <div className="shopping-item">
               <Link to="/cart">Cart - 
               {cartItems.length > 0 && (
-                <span className="product-count">{cartItems.length}</span>
+                <span className="product-count">{getCartCount()}</span>
               )}
-              <span className="cart-amunt">$800</span>
+              <span className="cart-amunt">${getCartSubTotal()}</span>
               <i className="fa fa-shopping-cart" />
               
               

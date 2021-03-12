@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../actions/cartActions';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { addToCart, removeFromCart } from '../actions/cartActions';
 import CartItem from '../components/CartItem';
 
 export default function Cart(props) {
@@ -9,6 +10,8 @@ const product_id=window.location.pathname.split('/')[2];
 const qty = props.location.search? Number(props.location.search.split('=')[1])
 : 1;
 
+const cart = useSelector((state) => state.cart);
+const {cartItems} = cart;
 
 const dispatch = useDispatch();
 useEffect(() => {
@@ -16,10 +19,42 @@ useEffect(() => {
     dispatch(addToCart(product_id, qty));
   }
 }, [])
+
+const getCartCount = () => {
+  return cartItems.reduce((qty, item) => Number(item.qty) + qty, 0);
+};
+
+const getCartSubTotal = () => {
+  return cartItems
+    .reduce((price, item) => price + item.price * item.qty, 0)
+    .toFixed(2);
+};
+
+const qtyChangeHandler = (id, qty) => {
+  dispatch(addToCart(id, qty));
+};
+
+const removeFromCartHandler = (id) => {
+  dispatch(removeFromCart(id));
+};
+
+const checkoutHandler = () => {
+  props.history.push('/signin?redirect=shipping');
+}
 return (
         <div>
-          <h1>ADD TO CART : ProductID: {product_id} Qty: {qty}</h1>
-                  <div className="single-product-area">
+                  <div className="product-big-title-area">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="product-bit-title text-center">
+                  <h2>Cart</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div className="single-product-area">
         <div className="zigzag-bottom" />
         <div className="container">
           <div className="row">
@@ -89,7 +124,19 @@ return (
                         </tr>
                       </thead>
                       <tbody>
-                        <CartItem />
+            {
+            cartItems.length === 0 ? (
+              <div>
+                 Your Cart Is Empty <Link to="/">Go Back</Link>
+              </div>
+             ) : ( 
+               cartItems.map((item, key) => 
+              <CartItem key={item._id} item={item} qtyChangeHandler={qtyChangeHandler} removeHandler={removeFromCartHandler} />
+              )
+            )
+            }
+            
+            
                         <tr>
                           <td className="actions" colSpan={6}>
                             <div className="coupon">
@@ -132,7 +179,7 @@ return (
                         <tbody>
                           <tr className="cart-subtotal">
                             <th>Cart Subtotal</th>
-                            <td><span className="amount">£15.00</span></td>
+                            <td><span className="amount">${getCartSubTotal()}</span></td>
                           </tr>
                           <tr className="shipping">
                             <th>Shipping and Handling</th>
@@ -140,7 +187,7 @@ return (
                           </tr>
                           <tr className="order-total">
                             <th>Order Total</th>
-                            <td><strong><span className="amount">£15.00</span></strong> </td>
+                            <td><strong><span className="amount">${getCartSubTotal()}</span></strong> </td>
                           </tr>
                         </tbody>
                       </table>

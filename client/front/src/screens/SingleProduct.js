@@ -25,14 +25,7 @@ export default function SingleProduct({ match, history }) {
       }
        return ( 
        <div>
-      {loading ? (
-        <LoadingBox></LoadingBox>
-      ) : error ? (
-        <MessageBox variant="danger">{error}</MessageBox>
-      ) : (
-        <>
-        <div>
-        <div className="product-big-title-area">
+                 <div className="product-big-title-area">
           <div className="container">
             <div className="row">
               <div className="col-md-12">
@@ -43,6 +36,13 @@ export default function SingleProduct({ match, history }) {
             </div>
           </div>
         </div>
+      {loading ? (
+        <LoadingBox></LoadingBox>
+      ) : error ? (
+        <MessageBox variant="danger">{error}</MessageBox>
+      ) : (
+        <>
+        <div>
         <div className="single-product-area">
           <div className="zigzag-bottom" />
           <div className="container">
