@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import LoadingBox from '../components/LoadingBox'
 import MessageBox from '../components/MessageBox'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { signin } from '../actions/userActions';
 
 export default function SigninScreen(props) {
     const dispatch = useDispatch();
@@ -12,14 +13,22 @@ export default function SigninScreen(props) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 
+    const userSignin = useSelector((state) => state.userSignin);
+    const {userInfo} = userSignin;
+
     const redirect = props.location.search
     ? props.location.search.split('=')[1]
-    : '/';
+    : '/shop';
 
     const submitHandler = (e) => {
         e.preventDefault();
-        //dispatch(signin(email, password));  
+        dispatch(signin(email,password));
     }
+
+    useEffect(() => {
+      if (userInfo)
+          props.history.push(redirect);
+    }, [userInfo]);
 
     return(
             <div>
