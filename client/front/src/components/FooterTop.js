@@ -13,11 +13,11 @@ class FooterTop extends React.Component{
               <h2>e<span>Electronics</span></h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis sunt id doloribus vero quam laborum quas alias dolores blanditiis iusto consequatur, modi aliquid eveniet eligendi iure eaque ipsam iste, pariatur omnis sint! Suscipit, debitis, quisquam. Laborum commodi veritatis magni at?</p>
               <div className="footer-social">
-                <a href="#" target="_blank"><i className="fa fa-facebook" /></a>
-                <a href="#" target="_blank"><i className="fa fa-twitter" /></a>
-                <a href="#" target="_blank"><i className="fa fa-youtube" /></a>
-                <a href="#" target="_blank"><i className="fa fa-linkedin" /></a>
-                <a href="#" target="_blank"><i className="fa fa-pinterest" /></a>
+                <a href="http://www.facebook.com/" target="_blank"><i className="fa fa-facebook" /></a>
+                <a href="http://www.twitter.com/" target="_blank"><i className="fa fa-twitter" /></a>
+                <a href="http://www.youtube.com/" target="_blank"><i className="fa fa-youtube" /></a>
+                <a href="http://www.linkedin.com/" target="_blank"><i className="fa fa-linkedin" /></a>
+                <a href="http://www.pinterest.com/" target="_blank"><i className="fa fa-pinterest" /></a>
               </div>
             </div>
           </div>
