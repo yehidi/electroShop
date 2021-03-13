@@ -54,7 +54,6 @@ const getSignUp = async (req, res) => {
       });
 };
 
-
 module.exports = {
   getUsers,
   getUserById,

@@ -18,6 +18,10 @@ import { useSelector } from 'react-redux';
 import registerScreen from './screens/RegisterScreen';
 import OrderDetails from './screens/OrderDetails';
 
+//users-angular
+import io from "socket.io-client";
+const socket= io.connect("http://localhost:5000");
+//users-angular
 function App() {
 
 
