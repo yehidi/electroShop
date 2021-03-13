@@ -15,6 +15,8 @@ import FooterTop from './components/FooterTop';
 import FooterBottom from './components/FooterBottom';
 import cartScreen from './screens/Cart';
 import { useSelector } from 'react-redux';
+import registerScreen from './screens/RegisterScreen';
+import OrderDetails from './screens/OrderDetails';
 
 //users-angular
 import io from "socket.io-client";
@@ -32,7 +34,9 @@ function App() {
           <Route path='/shop' component={shopScreen} />
           <Route path='/products/:id' component={singleProductScreen} />
           <Route path='/signin' component={signinScreen} />
+          <Route path='/register' component={registerScreen} />
           <Route path='/about' component={aboutScreen} />
+          <Route path='/orders' component={OrderDetails} />
           <Route path='/cart/:_id?' component={cartScreen} />
         </Switch>
       <FooterTop />

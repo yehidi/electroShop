@@ -33,32 +33,30 @@ const getSignIn = async (req, res) => {
         isAdmin: user.isAdmin,
         token: generateToken(user),
       });
-      return user;
+      return;
     }
   }
   res.status(401).send({message: 'Invalid email/password'});
 };
-//angular-users
-// const create = (req, res) => {
-//   const user = new User({
-//       id:req.body._id, //maybe
-//       password: req.body.password,
-//       name: req.body.name,
-//       isAdmin:req.body.isAdmin//maybe
-//   });
-// //add to db
-//   user.save().then(() => {
-//       res.json({ status: 'success' });
-//   }).catch(() => {
-//       res.json({ status: 'failed' });
-//   });
-// }
-//angular-users
+
+const getSignUp = async (req, res) => {
+  const user = new User({name: req.body.name ,email: req.body.email,
+  password: req.body.password
+  });
+
+  const createdUser = await user.save();
+      res.send({
+        _id: createdUser._id,
+        name: createdUser.name,
+        email: createdUser.email,
+        isAdmin: createdUser.isAdmin,
+        token: generateToken(createdUser),
+      });
+};
+
 module.exports = {
   getUsers,
   getUserById,
   getSignIn,
-  //angular-users
-  //create
-  //angular-users
+  getSignUp
 };

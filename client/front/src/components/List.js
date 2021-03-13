@@ -26,7 +26,7 @@ export default function List() {
             <div>
                 {
                     products.map((product) => (
-                    <ProductComp name={product.name} price={product.price} imageUrl={product.imageUrl} key={product._id} productId={product._id} />
+                    <ProductComp countInStock={product.countInStock} name={product.name} price={product.price} imageUrl={product.imageUrl} key={product._id} productId={product._id} />
                     ))
                 }
             </div>

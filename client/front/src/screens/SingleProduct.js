@@ -1,3 +1,4 @@
+import "./SingleProduct.css"
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import LoadingBox from '../components/LoadingBox'
@@ -6,6 +7,7 @@ import Reviews from '../components/Reviews'
 // Actions
 import { getProductDetails } from "../actions/productActions";
 import { PromiseProvider } from "mongoose";
+import { Link } from "react-router-dom";
 
 export default function SingleProduct({ match, history }) {
   
@@ -25,14 +27,7 @@ export default function SingleProduct({ match, history }) {
       }
        return ( 
        <div>
-      {loading ? (
-        <LoadingBox></LoadingBox>
-      ) : error ? (
-        <MessageBox variant="danger">{error}</MessageBox>
-      ) : (
-        <>
-        <div>
-        <div className="product-big-title-area">
+                 <div className="product-big-title-area">
           <div className="container">
             <div className="row">
               <div className="col-md-12">
@@ -43,6 +38,13 @@ export default function SingleProduct({ match, history }) {
             </div>
           </div>
         </div>
+      {loading ? (
+        <LoadingBox></LoadingBox>
+      ) : error ? (
+        <MessageBox variant="danger">{error}</MessageBox>
+      ) : (
+        <>
+        <div>
         <div className="single-product-area">
           <div className="zigzag-bottom" />
           <div className="container">
@@ -100,7 +102,7 @@ export default function SingleProduct({ match, history }) {
               <div className="col-md-8">
                 <div className="product-content-right">
                   <div className="product-breadcroumb">
-                    <a href>Home</a>
+                    <Link to="/shop">Shop</Link>
                     <a href>{product.category}</a>
                     <a href>{product.name}</a>
                   </div>

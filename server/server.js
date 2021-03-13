@@ -4,6 +4,7 @@ const connectDB = require('./config/db');
 var cors = require('cors');
 const app = express();
 const productRoutes = require('./routes/productRoutes');
+const orderRoutes = require('./routes/orderRoutes');
 const dataProducts = require('./data/products');
 const userRoutes = require('./routes/usersRouter');
 const dataUsers = require('./data/users');
@@ -54,12 +55,17 @@ app.get('/users', (req,res) =>{
     res.send(dataUsers);
 });
 
+app.get('/orders', (req,res) =>{
+    res.send(dataUsers);
+});
+
 app.use((err,req, res, next) => {
     res.status(500).send({ message: "ERROR" });
 })
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cors());
+app.use('/api/orders', orderRoutes)
 app.use('/api/products', productRoutes); 
 app.use('/api/users', userRoutes);
 
