@@ -16,6 +16,7 @@ import FooterBottom from './components/FooterBottom';
 import cartScreen from './screens/Cart';
 import { useSelector } from 'react-redux';
 import registerScreen from './screens/RegisterScreen';
+import OrderDetails from './screens/OrderDetails';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
           <Route path='/signin' component={signinScreen} />
           <Route path='/register' component={registerScreen} />
           <Route path='/about' component={aboutScreen} />
+          <Route path='/orders' component={OrderDetails} />
           <Route path='/cart/:_id?' component={cartScreen} />
         </Switch>
       <FooterTop />

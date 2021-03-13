@@ -39,7 +39,7 @@ const getSignIn = async (req, res) => {
   res.status(401).send({message: 'Invalid email/password'});
 };
 
-const getSignOut = async (req, res) => {
+const getSignUp = async (req, res) => {
   const user = new User({name: req.body.name ,email: req.body.email,
   password: req.body.password
   });
@@ -59,5 +59,5 @@ module.exports = {
   getUsers,
   getUserById,
   getSignIn,
-  getSignOut
+  getSignUp
 };

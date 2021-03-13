@@ -5,7 +5,7 @@ export const addToCart = (id, qty) => async(dispatch, getState) => {
 
     const {data} = await axios.get(`/api/products/${id}`);
     dispatch ({
-        type: actionTypes.ADD_TO_CART,
+        type: actionTypes.CART_ADD_ITEM,
         payload: {
             product: data._id,
             name: data.name,
@@ -21,7 +21,7 @@ export const addToCart = (id, qty) => async(dispatch, getState) => {
 
 export const removeFromCart = (id) => (dispatch, getState) => {
     dispatch({
-      type: actionTypes.REMOVE_FROM_CART,
+      type: actionTypes.CART_REMOVE_ITEM,
       payload: id,
     });
   

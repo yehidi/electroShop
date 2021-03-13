@@ -1,12 +1,11 @@
 const express = require("express");
 const usersRouter = express.Router();
 
-
 const {
   getUsers,
   getUserById,
   getSignIn,
-  getSignOut,
+  getSignUp,
 } = require("../controller/userController");
 
 //Get All The Users From db
@@ -24,6 +23,9 @@ usersRouter.get("/:id", getUserById);
 //@access Public
 usersRouter.post("/signin", getSignIn);
 
-usersRouter.post("/register", getSignOut);
+//Get signup page
+//@route Get /api/users/register
+//@access Public
+usersRouter.post("/register", getSignUp);
 
 module.exports = usersRouter;
