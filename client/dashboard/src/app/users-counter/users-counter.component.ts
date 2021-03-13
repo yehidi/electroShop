@@ -11,7 +11,4 @@ export class UsersCounterComponent {
   constructor(private service : RealtimeService){
     service.currentCounter.subscribe(counter => this.counter = counter);
   }
-
- 
-
 }
