@@ -3,15 +3,18 @@ import { Link } from 'react-router-dom'
 import LoadingBox from '../components/LoadingBox'
 import MessageBox from '../components/MessageBox'
 import { useDispatch, useSelector } from 'react-redux';
-import { signin } from '../actions/userActions';
+import { register } from '../actions/userActions';
 
-export default function SigninScreen(props) {
+export default function RegisterScreen(props) {
+
     const dispatch = useDispatch();
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
-    const userSignin = useSelector((state) => state.userSignin);
-    const {userInfo, loading, error} = userSignin;
+    const userRegister = useSelector((state) => state.userRegister);
+    const {userInfo, loading, error} = userRegister;
 
     const redirect = props.location.search
     ? props.location.search.split('=')[1]
@@ -19,7 +22,11 @@ export default function SigninScreen(props) {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(signin(email,password));
+        if (password !== confirmPassword){
+            alert('Password and confirm password are not match');
+        } else {
+            dispatch(register(name, email, password));
+        }
     }
 
     useEffect(() => {
@@ -31,10 +38,20 @@ export default function SigninScreen(props) {
             <div>
               <form className="form" onSubmit={submitHandler}>
                 <div>
-                  <h1>Sign In</h1>
+                  <h1>Create Account</h1>
                 </div>
                 {loading && <LoadingBox></LoadingBox>}
                 {error && <MessageBox variant="danger">{error}</MessageBox>}
+                <div>
+                  <label htmlFor="name">Full Name:</label>
+                  <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter Full Name"
+                    required
+                    onChange={(e) => setName(e.target.value)}
+                  ></input>
+                </div>
                 <div>
                   <label htmlFor="email">Email address:</label>
                   <input
@@ -56,15 +73,25 @@ export default function SigninScreen(props) {
                   ></input>
                 </div>
                 <div>
+                  <label htmlFor="confirmPassword">Confirm Password:</label>
+                  <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="confirm password"
+                    required
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                  ></input>
+                </div>
+                <div>
                   <label />
                   <button className="primary" type="submit">
-                    Sign In
+                    Register
                   </button>
                 </div>
                 <div>
                   <label />
                   <div>
-                    New customer? {' '} <Link to={`/register?redirect=${redirect}`}>Create your account</Link>
+                    Already have an acoount? {' '} <Link to={`/signin?redirect=${redirect}`}>Create your account</Link>
                   </div>
                 </div>
               </form>

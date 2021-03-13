@@ -6,6 +6,7 @@ const {
   getUsers,
   getUserById,
   getSignIn,
+  getSignOut,
 } = require("../controller/userController");
 
 //Get All The Users From db
@@ -22,5 +23,7 @@ usersRouter.get("/:id", getUserById);
 //@route Get /api/users/signin
 //@access Public
 usersRouter.post("/signin", getSignIn);
+
+usersRouter.post("/register", getSignOut);
 
 module.exports = usersRouter;

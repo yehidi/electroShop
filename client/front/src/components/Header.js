@@ -45,7 +45,10 @@ export default function Header() {
                     <li>Hello, {userInfo.name}</li>
                     </>
                   ) : (
+                    <>
                     <li><Link to="/signin"><i className="fa fa-user" /> Login</Link></li>
+                    <li><Link to="/register"><i className="fa fa-user" /> Register</Link></li>
+                    </>
                   )
                 }
                 

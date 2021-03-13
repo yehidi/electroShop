@@ -127,7 +127,7 @@ return (
             {
             cartItems.length === 0 ? (
               <div>
-                 Your Cart Is Empty <Link to="/">Go Back</Link>
+                 Your Cart Is Empty, <Link to="/shop">Go Back</Link>
               </div>
              ) : ( 
                cartItems.map((item, key) => 
@@ -139,13 +139,9 @@ return (
             
                         <tr>
                           <td className="actions" colSpan={6}>
-                            <div className="coupon">
-                              <label htmlFor="coupon_code">Coupon:</label>
-                              <input type="text" placeholder="Coupon code" defaultValue id="coupon_code" className="input-text" name="coupon_code" />
-                              <input type="submit" defaultValue="Apply Coupon" name="apply_coupon" className="button" />
-                            </div>
-                            <input type="submit" defaultValue="Update Cart" name="update_cart" className="button" />
-                            <input type="submit" defaultValue="Proceed to Checkout" name="proceed" className="checkout-button button alt wc-forward" />
+                            <input type="submit" value="Proceed to Checkout" name="proceed" 
+                              className="checkout-button button alt wc-forward" onClick={checkoutHandler}
+                              disabled={cartItems.length===0} />
                           </td>
                         </tr>
                       </tbody>
